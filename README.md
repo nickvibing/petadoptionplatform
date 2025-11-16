@@ -1,5 +1,5 @@
 CPSC 362: Foundations of Software Engineering<br>
-Project NaN<br>
+Team NaN<br>
 Pet Adoption Platform<br>
 
 <h2>Project Summary</h2>
