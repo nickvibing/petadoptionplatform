@@ -1,21 +1,51 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Pet Adoption Platform</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <h1>Login to Pet Adoption Platform</h1>
-    <form action="/login" method="POST">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required>
-        <br>
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
-        <br>
-        <button type="submit">Login</button>
-    </form>
-</body>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Pet Adoption Login</title>
+		<link rel="stylesheet" href="css/styles.css" />
+	</head>
+	<body>
+		<main class="login-page">
+			<section class="card">
+				<div class="left">
+					<div class="logo"><span class="icon">🐾</span><span class="brand">CSUF Pet Adoption Center</span></div>
+					<p class="login-title">Sign In To Continue</p>
+
+					<form id="loginForm" class="login-form" action="#" method="post" novalidate>
+						<div class="form-group">
+							<label for="email">Email</label>
+							<input id="email" name="email" type="email" placeholder="you@example.com" required />
+							<span class="error" id="emailError" aria-live="polite"></span>
+						</div>
+
+						<div class="form-group">
+							<label for="password">Password</label>
+							<input id="password" name="password" type="password" placeholder="Enter your password" required minlength="6" />
+							<span class="error" id="passwordError" aria-live="polite"></span>
+						</div>
+
+						<div class="form-actions">
+							<label class="checkbox">
+								<input type="checkbox" name="remember" /> Remember Me
+							</label>
+							<button type="submit" class="btn primary">Login</button>
+						</div>
+
+						<div class="form-footer">
+							<a href="#">Dont have account ?</a>
+							<a href="#" class="small">Forgot Password?</a>
+						</div>
+					</form>
+				</div>
+
+				<div class="right" aria-hidden="true">
+					<img src="images/pet-friend.webp" />
+				</div>
+			</section>
+		</main>
+		<script src="js/login.js"></script>
+	</body>
 </html>
+
