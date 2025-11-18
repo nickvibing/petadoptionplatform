@@ -14,14 +14,15 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.login-page {
+.login-page, .registration-page {
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 40px;
 }
-.login-page::before {
+
+.login-page::before, .registration-page::before {
   content: "";
   position: fixed;
   left: -60px;
@@ -33,7 +34,7 @@ body {
   filter: blur(8px);
   z-index: 0;
 }
-.login-page::after {
+.login-page::after .registration-page::after {
   content: "";
   position: fixed;
   right: -80px;
@@ -91,16 +92,18 @@ body {
   letter-spacing: 0.2px;
 }
 
-.login-title {
+.login-title .registration-title {
   margin-top: 10px;
   margin-bottom: 18px;
   color: #555;
   font-size: 13px;
 }
 
-.login-form {
+.login-form .registration-page{
   max-width: 320px;
 }
+
+
 .login-form .form-group {
   margin-bottom: 14px;
 }
@@ -120,7 +123,7 @@ body {
   outline: none;
   transition: box-shadow 0.15s, border-color 0.15s;
 }
-.login-form .form-group input[type=email]:focus, .login-form .form-group input[type=password]:focus {
+.login-form .form-group input[type=email]:focus, .login-form .form-group   input[type=password]:focus {
   border-color: rgba(225, 26, 36, 0.75);
   box-shadow: 0 6px 18px rgba(225, 26, 36, 0.06);
 }
@@ -155,7 +158,7 @@ body {
   font-weight: 600;
   box-shadow: 0 8px 20px rgba(225, 26, 36, 0.18);
 }
-.login-form .form-actions .btn.primary:hover {
+.login-form .form-actions .btn.primary {
   transform: translateY(-1px);
 }
 .login-form .form-actions .btn.primary:active {
