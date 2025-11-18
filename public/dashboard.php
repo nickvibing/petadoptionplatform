@@ -246,45 +246,45 @@ $role = $_SESSION['user_role'] ?? 'adopter';
                 <div class="card">
                     <h3>Add New Pet</h3>
                     <p>List a new pet for adoption on the platform.</p>
-                    <a href="#" class="btn">Add Pet</a>
+                    <a href="#" class="btn" onclick="alert('coming soon: add pet functionality'); return false;">Add Pet</a>
                 </div>
 
                 <div class="card">
                     <h3>Manage Pets</h3>
                     <p>View and manage all your listed pets.</p>
-                    <a href="#" class="btn secondary">View Pets</a>
+                    <a href="index.php" class="btn secondary">View Pets</a>
                 </div>
 
                 <div class="card">
                     <h3>Adoption Requests</h3>
                     <p>Review and respond to adoption applications.</p>
-                    <a href="#" class="btn">View Requests</a>
+                    <a href="#" class="btn" onclick="alert('coming soon: adoption requests'); return false;">View Requests</a>
                 </div>
             <?php else: ?>
                 <!-- Adopter Dashboard Cards -->
                 <div class="card">
                     <h3>Browse Pets</h3>
                     <p>Explore all available pets looking for a loving home.</p>
-                    <a href="#" class="btn">Browse Now</a>
+                    <a href="index.php" class="btn">Browse Now</a>
                 </div>
 
                 <div class="card">
                     <h3>My Favorites</h3>
                     <p>View pets you've saved to your favorites list.</p>
-                    <a href="#" class="btn secondary">View Favorites</a>
+                    <a href="#" class="btn secondary" onclick="alert('coming soon: favorites functionality'); return false;">View Favorites</a>
                 </div>
 
                 <div class="card">
                     <h3>My Applications</h3>
                     <p>Track the status of your adoption applications.</p>
-                    <a href="#" class="btn">View Applications</a>
+                    <a href="#" class="btn" onclick="alert('coming soon: applications tracking'); return false;">View Applications</a>
                 </div>
             <?php endif; ?>
 
             <div class="card">
                 <h3>Profile Settings</h3>
                 <p>Update your account information and preferences.</p>
-                <a href="#" class="btn secondary">Edit Profile</a>
+                <a href="#" class="btn secondary" onclick="alert('coming soon: profile editing'); return false;">Edit Profile</a>
             </div>
         </div>
     </div>
