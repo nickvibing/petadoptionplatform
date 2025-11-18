@@ -1,6 +1,5 @@
-# Project Title
+# CPSC 362: Foundations of Software Engineering - Team NaN
 
-CPSC 362: Foundations of Software Engineering - Team NaN
 CSUF Pet Adoption Platform
 
 ## Description
