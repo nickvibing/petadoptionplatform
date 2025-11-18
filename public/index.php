@@ -19,7 +19,8 @@ $firstName = $loggedIn ? getUserFirstName() : '';
     <link rel="stylesheet" href="css/styles.css" />
     <style>
         .hero-section {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #bd2440;
+            background: linear-gradient(135 def, rgba(189,36,64,1) 0%, rgba(235,160,176,1) 50%, rgba(232,237,83,1) 100%);
             color: white;
             padding: 60px 20px;
             text-align: center;
@@ -61,7 +62,7 @@ $firstName = $loggedIn ? getUserFirstName() : '';
 
         .btn-primary {
             background: white;
-            color: #667eea;
+            color: black;
         }
 
         .btn-secondary {
@@ -114,6 +115,8 @@ $firstName = $loggedIn ? getUserFirstName() : '';
           <button type="button" data-type="dogs" class="active">Dogs</button>
           <button type="button" data-type="cats">Cats</button>
           <button type="button" data-type="rabbits">Rabbits</button>
+          <button type="button" data-type="birds">Birds</button>
+          <button type="button" data-type="others">Others</button>
         </div>
 
         <div id="animals" class="animals" aria-live="polite">

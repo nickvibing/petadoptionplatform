@@ -30,7 +30,7 @@ $role = $_SESSION['user_role'] ?? 'adopter';
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, rgba(189,36,36,1) 0%, rgba(235,160,191,1) 50%);
             min-height: 100vh;
         }
 
