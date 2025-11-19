@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $error = "Database connection failed. Please try again later.";
         } else {
             // Query database for user
-            $stmt = $conn->prepare("SELECT user_id, password_hash, first_name, user_role FROM users WHERE user_email = ?");
+            $stmt = $conn->prepare("SELECT user_id, password_hash, first_name, user_role, provider_id FROM users WHERE user_email = ?");
             $stmt->bind_param("s", $email);
             $stmt->execute();
             $result = $stmt->get_result();
@@ -52,6 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $_SESSION['user_id'] = $user['user_id'];
                     $_SESSION['first_name'] = $user['first_name'];
                     $_SESSION['user_role'] = $user['user_role'];
+                    $_SESSION['provider_id'] = $user['provider_id']; // Store provider_id for provider users
                     $_SESSION['login_time'] = time();
 
                     // Regenerate session ID for security
