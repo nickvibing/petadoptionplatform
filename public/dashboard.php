@@ -312,7 +312,7 @@ $role = $_SESSION['user_role'] ?? 'adopter';
                 <div class="card">
                     <h3>Adoption Requests</h3>
                     <p>Review and respond to adoption applications.</p>
-                    <a href="#" class="btn" onclick="alert('coming soon: adoption requests'); return false;">View Requests</a>
+                    <a href="provider_requests.php" class="btn">View Requests</a>
                 </div>
             <?php else: ?>
                 <!-- Adopter Dashboard Cards -->
@@ -331,7 +331,7 @@ $role = $_SESSION['user_role'] ?? 'adopter';
                 <div class="card">
                     <h3>My Applications</h3>
                     <p>Track the status of your adoption applications.</p>
-                    <a href="#" class="btn" onclick="alert('coming soon: applications tracking'); return false;">View Applications</a>
+                    <a href="my_application.php" class="btn">View Applications</a>
                 </div>
             <?php endif; ?>
 

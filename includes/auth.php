@@ -142,4 +142,22 @@ function isAdopter() {
 function getUserFirstName() {
     return $_SESSION['first_name'] ?? 'Guest';
 }
+
+/**
+ * Returns the logged-in user's ID.
+ * @return int|null
+ */
+function getUserId() {
+    return $_SESSION['user_id'] ?? null;
+}
+
+/**
+ * Returns the provider's ID if the user is a provider.
+ * Providers are linked in the users table via provider_id.
+ * @return int|null
+ */
+function getProviderId() {
+    return $_SESSION['provider_id'] ?? null;
+}
+
 ?>

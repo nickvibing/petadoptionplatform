@@ -112,11 +112,11 @@ $firstName = $loggedIn ? getUserFirstName() : '';
         <h2 style="text-align: center; margin-bottom: 30px;">Browse Available Pets</h2>
 
         <div class="selector" role="tablist" aria-label="Choose animal type">
-          <button type="button" data-type="dogs" class="active">Dogs</button>
-          <button type="button" data-type="cats">Cats</button>
-          <button type="button" data-type="rabbits">Rabbits</button>
-          <button type="button" data-type="birds">Birds</button>
-          <button type="button" data-type="others">Others</button>
+          <button type="button" data-type="dog" class="active">Dogs</button>
+          <button type="button" data-type="cat">Cats</button>
+          <button type="button" data-type="rabbit">Rabbits</button>
+          <button type="button" data-type="bird">Birds</button>
+          <button type="button" data-type="other">Others</button>
         </div>
 
         <div id="animals" class="animals" aria-live="polite">
