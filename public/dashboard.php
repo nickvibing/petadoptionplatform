@@ -191,6 +191,60 @@ $role = $_SESSION['user_role'] ?? 'adopter';
         .user-details td:last-child {
             color: #333;
         }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            padding-top: 90px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            overflow-y: auto;
+            padding: 40px 0;
+        }
+
+        .modal-content {
+            background: #fff;
+            margin: auto;
+            padding: 25px;
+            border-radius: 10px;
+            width: 450px;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        .close {
+            float:right;
+            font-size: 28px;
+            cursor: pointer;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95)}
+            to { opacity: 1; transform: scale(1)}
+        }
+        
+        .modal-content input,
+        .modal-content select,
+        .modal-content textarea {
+            width: 100%;
+            padding: 8px;
+            margin: 6px 0 14px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 10px;
+            background: #4285f4;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -246,7 +300,7 @@ $role = $_SESSION['user_role'] ?? 'adopter';
                 <div class="card">
                     <h3>Add New Pet</h3>
                     <p>List a new pet for adoption on the platform.</p>
-                    <a href="#" class="btn" onclick="alert('coming soon: add pet functionality'); return false;">Add Pet</a>
+                    <a href='#' id='openAddPetModal' class="btn">Add Pet</a>
                 </div>
 
                 <div class="card">
@@ -286,7 +340,86 @@ $role = $_SESSION['user_role'] ?? 'adopter';
                 <p>Update your account information and preferences.</p>
                 <a href="#" class="btn secondary" onclick="alert('coming soon: profile editing'); return false;">Edit Profile</a>
             </div>
+
+            <!-- Pet Modal -->
+            <div id="addPetModal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+
+                    <h2> Add a New Pet </h2>
+
+                    <form action="../includes/addpet.php" method="POST">
+                        <label> Pet Name: </label>
+                        <input type="text" name="pet_name" required>
+
+                        <label> Pet Species: </label>
+                        <select name="pet_type" required>
+                            <option value='dog'> Dog </option>
+                            <option value='cat'> Cat </option>
+                            <option value='rabbit'> Rabbit </option>
+                            <option value='bird'> Bird </option>
+                            <option value='other'> Other </option>
+                        </select>
+
+                        <label> Breed: </label>
+                        <input type='text' name ='breed'>
+
+                        <label> Age: </label>
+                        <input type='number' name='age'>
+
+                        <label>Gender: </label>
+                        <select name='gender'>
+                            <option value='male'> Male </option>
+                            <option value='female'> Female </option>
+                            <option value='unknown'> Unknown </option>
+                        </select>
+
+                        <label> Size: </label>
+                        <select name='size'>
+                            <option value='small'> Small </option>
+                            <option value='medium'> Medium </option>
+                            <option value='large'> Large </option>
+                        </select>
+
+                        <label> Description: </label>
+                        <textarea name='description'></textarea>
+
+                        <label> Image URL: </label>
+                        <input type='text' name = 'image_url'>
+
+                        <label> Provider ID: </label>
+                        <input type='number' name='provider_id' required>
+
+                        <button type='submit' class='submit-btn'> Add Pet </button>
+                    </form>
+            </div>
+            <!-- End Pet modal -->
+
         </div>
     </div>
+    <script>
+        const modal = document.getElementById("addPetModal");
+        const openBtn = document.getElementById("openAddPetModal");
+        const closeBtn = document.querySelector(".close");
+
+    if (openBtn) {
+        openBtn.onclick = (e) => {
+            e.preventDefault();
+            modal.style.display = "block";
+        };
+    }   
+
+    if (closeBtn) {
+        closeBtn.onclick = () => {
+            modal.style.display = "none";
+        };
+    }
+
+    window.onclick = (event) => {
+        if (event.target === modal) {
+            modal.style.display = "none";
+        }
+    };
+    </script>
 </body>
 </html>
