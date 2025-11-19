@@ -4,8 +4,25 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-// Include the database connection
+// Include required files
+require_once __DIR__ . "/config.php";
+require_once __DIR__ . "/auth.php";
 require_once __DIR__ . "/db_connect.php";
+
+// Ensure user is logged in and is a provider
+requireLogin();
+if ($_SESSION['user_role'] !== 'provider') {
+    header("Location: ../public/dashboard.php?status=error&message=Unauthorized");
+    exit();
+}
+
+// Get provider_id from session (set during login)
+$provider_id = getProviderId();
+
+if (!$provider_id) {
+    header("Location: ../public/dashboard.php?status=error&message=Provider+ID+not+found.+Please+logout+and+login+again");
+    exit();
+}
 
 $conn = createConnection();
 
@@ -13,18 +30,17 @@ $conn = createConnection();
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     // Collect and sanitize input
-    $pet_name    = $_POST['pet_name'] ?? '';
+    $pet_name    = trim($_POST['pet_name'] ?? '');
     $pet_type    = $_POST['pet_type'] ?? '';
-    $breed       = $_POST['breed'] ?? '';
-    $age         = $_POST['age'] ?? '';
+    $breed       = trim($_POST['breed'] ?? '');
+    $age         = intval($_POST['age'] ?? 0);
     $gender      = $_POST['gender'] ?? '';
     $size        = $_POST['size'] ?? '';
-    $description = $_POST['description'] ?? '';
-    $image_url   = $_POST['image_url'] ?? '';
-    $provider_id = $_POST['provider_id'] ?? '';
+    $description = trim($_POST['description'] ?? '');
+    $image_url   = trim($_POST['image_url'] ?? '');
 
     // Basic validation
-    if (empty($pet_name) || empty($pet_type) || empty($age) || empty($provider_id)) {
+    if (empty($pet_name) || empty($pet_type) || $age <= 0) {
         header("Location: ../public/dashboard.php?status=error&message=Please+fill+all+required+fields");
         exit();
     }
