@@ -241,7 +241,6 @@ protected pages:
 
 ## authors
 
-- Neo Morrison - https://github.com/neomorrison
 - Team NaN - CPSC 362, CSUF
 
 ## version history
