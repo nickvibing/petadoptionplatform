@@ -258,6 +258,19 @@ $role = $_SESSION['user_role'] ?? 'adopter';
     </div>
 
     <div class="container">
+        <?php
+        // Display status messages
+        if (isset($_GET['status'])) {
+            $status = $_GET['status'];
+            $message = $_GET['message'] ?? '';
+            $statusColor = ($status === 'success') ? '#4CAF50' : '#f44336';
+            $statusBg = ($status === 'success') ? '#d4f7d4' : '#ffd6d6';
+        ?>
+            <div style="background: <?php echo $statusBg; ?>; color: <?php echo $statusColor; ?>; padding: 15px 20px; border-radius: 8px; margin-bottom: 20px; border-left: 4px solid <?php echo $statusColor; ?>;">
+                <strong><?php echo ucfirst($status); ?>:</strong> <?php echo htmlspecialchars(str_replace('+', ' ', $message)); ?>
+            </div>
+        <?php } ?>
+
         <div class="welcome-card">
             <h2>Welcome to Your Dashboard!</h2>
             <p>You've successfully logged in to the CSUF Pet Adoption Platform. From here, you can manage your account and
@@ -300,7 +313,17 @@ $role = $_SESSION['user_role'] ?? 'adopter';
                 <div class="card">
                     <h3>Add New Pet</h3>
                     <p>List a new pet for adoption on the platform.</p>
-                    <a href='#' id='openAddPetModal' class="btn">Add Pet</a>
+                    <?php
+                    $currentProviderId = $_SESSION['provider_id'] ?? null;
+                    if (!$currentProviderId):
+                    ?>
+                        <p style="color: #e74c3c; font-size: 14px; margin: 10px 0;">
+                            <strong>Note:</strong> Please logout and login again to add pets.
+                        </p>
+                        <a href='#' class="btn secondary" style="background: #999; cursor: not-allowed;" onclick="alert('Please logout and login again to activate pet management features.'); return false;">Add Pet (Disabled)</a>
+                    <?php else: ?>
+                        <a href='#' id='openAddPetModal' class="btn">Add Pet</a>
+                    <?php endif; ?>
                 </div>
 
                 <div class="card">
@@ -386,9 +409,6 @@ $role = $_SESSION['user_role'] ?? 'adopter';
 
                         <label> Image URL: </label>
                         <input type='text' name = 'image_url'>
-
-                        <label> Provider ID: </label>
-                        <input type='number' name='provider_id' required>
 
                         <button type='submit' class='submit-btn'> Add Pet </button>
                     </form>
