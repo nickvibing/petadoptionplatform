@@ -44,11 +44,30 @@ $result = $stmt->get_result();
             padding: 50px 20px;
             text-align: center;
             margin-bottom: 40px;
+            position: relative;
         }
 
         .hero-section h1 {
             font-size: 42px;
             margin: 0;
+        }
+
+        .back-btn {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.2);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+
+        .back-btn:hover {
+            background: rgba(255,255,255,0.3);
         }
 
         /* --- MAIN CONTENT --- */
@@ -143,6 +162,7 @@ $result = $stmt->get_result();
 
 <!-- HEADER -->
 <div class="hero-section">
+    <a href="dashboard.php" class="back-btn">← Dashboard</a>
     <h1>Adoption Requests</h1>
 </div>
 
