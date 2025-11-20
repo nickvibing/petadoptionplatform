@@ -37,7 +37,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <head>
     <title>Adopt <?php echo $pet['pet_name']; ?></title>
     <style>
-        
         .hero-section {
             background: #bd2440;
             background: linear-gradient(135deg, rgba(189,36,64,1) 0%, rgba(235,160,176,1) 50%, rgba(232,237,83,1) 100%);
@@ -45,6 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             padding: 60px 20px;
             text-align: center;
             margin-bottom: 40px;
+            position: relative;
         }
 
         .hero-section h1 {
@@ -55,6 +55,24 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         .hero-section p {
             font-size: 20px;
             opacity: 0.9;
+        }
+
+        .back-btn {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.2);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+
+        .back-btn:hover {
+            background: rgba(255,255,255,0.3);
         }
 
         /* --- FORM CONTAINER --- */
@@ -101,10 +119,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             transform: translateY(-2px);
             background: #a81f38;
         }
+        
+        
     </style>
 </head>
 <body>
 <div class="hero-section">
+    <a href="index.php" class="back-btn">← Go Back</a>
     <h1>Apply to Adopt <?php echo $pet['pet_name']; ?></h1>
     <p>Send a message to the pet provider about why you're the perfect match!</p>
 </div>
